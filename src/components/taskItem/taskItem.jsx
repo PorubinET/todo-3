@@ -46,7 +46,7 @@ import './taskItem.scss';
                     onClick={doneTasks} 
                     type="checkbox"
                     />
-                    <input className=""
+                    <input className={className}
                         type="text" 
                         onChange={this.inputChange}
                         onDoubleClick={this.onSubmit}
@@ -61,7 +61,7 @@ import './taskItem.scss';
                         </svg>
                     </button>
                 </label>
-                <p className={className}></p>
+
             </li>           
         );
     }    

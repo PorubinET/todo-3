@@ -72,13 +72,20 @@ class App extends Component{
     }))
   }
 
-  allCompleated = () => {
+  allCompleated = (tasksDone) => {
+    const count = tasksDone;
     this.setState(({data}) => ({
       data: data.map(item => { 
-        return {...item, done: item.done = true}       
+        if(count === 0){
+          return {...item, done: !item.done} 
+        }   
+        else
+          return {...item, done: item.done = true}  
       })
     }))
+
   }
+  
 
   filterPost = (items, filter) => {
     switch (filter) {
@@ -99,11 +106,11 @@ class App extends Component{
 
   render(){
     const {data, filter} = this.state;
-    const tasksValue = this.state.data.filter(item => item.done === false).length;
-    const tasksDone = this.state.data.filter(item => item.done === true).length;
+    const tasksDone = this.state.data.map(item => item.done);
     const visibleData = this.filterPost((data), filter);
     const dataValue = this.state.data;
-    
+    console.log(tasksDone);
+    // console.log(this.state.data.map(item => item.done));
 
     return (
       <div className="App">
@@ -112,7 +119,6 @@ class App extends Component{
               <h1 className="to-do__title">todos</h1>
               <div className="to-do__block">
                 <TaskInput 
-                tasksDone={tasksDone}
                 onAdd={this.addTask}
                 changeTask={this.changeTask}
                 allCompleated={this.allCompleated}
@@ -128,7 +134,8 @@ class App extends Component{
                 />
                 <Board 
                 filter={filter}
-                tasksValue={tasksValue}
+                // tasksValue={tasksValue}
+                tasksDone={tasksDone}
                 allDelete={this.deleteAll}
                 onFilterSelect={this.onFilterSelect}              
                 />  

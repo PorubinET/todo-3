@@ -3,7 +3,7 @@ import './board.scss'
 
 
 const Board = (props) => {
-    const {tasksValue, allDelete} = props;
+    const {tasksDone, allDelete} = props;
     const buttonsData = [
         {name: 'all', label: 'All'},
         {name: 'active', label: 'Active'},
@@ -26,7 +26,7 @@ const Board = (props) => {
 
     return (
         <div className="to-do__board">
-            <p className="to-do__board-list-items">{tasksValue} item left</p>
+            <p className="to-do__board-list-items">{tasksDone} item left</p>
             <label className="to-do__board-check">
                 {buttons}
             </label>
