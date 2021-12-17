@@ -1,0 +1,24 @@
+.to-do {
+    &__board {
+        display: flex;
+        width: 100%;
+        height: 65px;
+        text-align: end;
+        background-color: #fff;
+        justify-content: space-between;
+        color: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.18);
+    }
+    &__board-btn {
+        width: 100px;
+        height: 50px;
+        
+    }
+    &__active {
+        // border: 1px solid rgba(19, 19, 19, 0.18);
+    }
+    &__board-list-check {
+        cursor: pointer;
+    }
+}
